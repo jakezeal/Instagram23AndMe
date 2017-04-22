@@ -13,9 +13,26 @@
 		E29934741EABDB620002E449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29934721EABDB620002E449 /* LaunchScreen.storyboard */; };
 		E29934811EABDBE70002E449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934801EABDBE70002E449 /* ViewController.swift */; };
 		E29934841EABE1490002E449 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934831EABE1490002E449 /* APIManager.swift */; };
-		E29934871EABE1DF0002E449 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; };
-		E29934891EABE1E80002E449 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; };
+		E299348D1EABE2CC0002E449 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; };
+		E299348E1EABE2CC0002E449 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E299348F1EABE2CC0002E449 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; };
+		E29934901EABE2CC0002E449 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E29934911EABE2CC0002E449 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E299348E1EABE2CC0002E449 /* SwiftyJSON.framework in Embed Frameworks */,
+				E29934901EABE2CC0002E449 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E29934891EABE1E80002E449 /* SwiftyJSON.framework in Frameworks */,
-				E29934871EABE1DF0002E449 /* Alamofire.framework in Frameworks */,
+				E299348D1EABE2CC0002E449 /* SwiftyJSON.framework in Frameworks */,
+				E299348F1EABE2CC0002E449 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +158,7 @@
 				E29934621EABDB620002E449 /* Sources */,
 				E29934631EABDB620002E449 /* Frameworks */,
 				E29934641EABDB620002E449 /* Resources */,
+				E29934911EABE2CC0002E449 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
