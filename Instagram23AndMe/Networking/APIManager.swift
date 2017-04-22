@@ -8,8 +8,19 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 final class APIManager {
     
+    static let baseURLString = "https://humanup.io/api"
+    
+    // MARK: - Singleton
+    static let shared = APIManager()
+    
+    // MARK: - Instance Vars
+    private var sessionManager: SessionManager!
+    
+    // MARK: - Init
+    private init() {
+        sessionManager = Alamofire.SessionManager.default
+    }
 }

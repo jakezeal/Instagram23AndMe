@@ -17,6 +17,7 @@
 		E299348E1EABE2CC0002E449 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E299348F1EABE2CC0002E449 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; };
 		E29934901EABE2CC0002E449 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E29934941EABE4460002E449 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934931EABE4460002E449 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,7 @@
 		E29934831EABE1490002E449 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Networking/APIManager.swift; sourceTree = "<group>"; };
 		E29934861EABE1DF0002E449 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		E29934881EABE1E80002E449 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		E29934931EABE4460002E449 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				E29934691EABDB620002E449 /* AppDelegate.swift */,
 				E29934821EABE12D0002E449 /* Networking */,
+				E29934921EABE3F20002E449 /* Services */,
 				E299347D1EABDB730002E449 /* Models */,
 				E299347C1EABDB6F0002E449 /* Views */,
 				E299347B1EABDB6A0002E449 /* View Controllers */,
@@ -109,6 +112,7 @@
 		E299347D1EABDB730002E449 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E29934931EABE4460002E449 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -146,6 +150,13 @@
 				E29934861EABE1DF0002E449 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E29934921EABE3F20002E449 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29934941EABE4460002E449 /* User.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
 				E29934811EABDBE70002E449 /* ViewController.swift in Sources */,
 				E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */,
