@@ -12,6 +12,9 @@
 		E29934711EABDB620002E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29934701EABDB620002E449 /* Assets.xcassets */; };
 		E29934741EABDB620002E449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29934721EABDB620002E449 /* LaunchScreen.storyboard */; };
 		E29934811EABDBE70002E449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934801EABDBE70002E449 /* ViewController.swift */; };
+		E29934841EABE1490002E449 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934831EABE1490002E449 /* APIManager.swift */; };
+		E29934871EABE1DF0002E449 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; };
+		E29934891EABE1E80002E449 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		E29934731EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E29934751EABDB620002E449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E29934801EABDBE70002E449 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controllers/ViewController.swift"; sourceTree = "<group>"; };
+		E29934831EABE1490002E449 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Networking/APIManager.swift; sourceTree = "<group>"; };
+		E29934861EABE1DF0002E449 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		E29934881EABE1E80002E449 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29934891EABE1E80002E449 /* SwiftyJSON.framework in Frameworks */,
+				E29934871EABE1DF0002E449 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				E29934681EABDB620002E449 /* Instagram23AndMe */,
 				E29934671EABDB620002E449 /* Products */,
+				E29934851EABE1DE0002E449 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				E29934691EABDB620002E449 /* AppDelegate.swift */,
+				E29934821EABE12D0002E449 /* Networking */,
 				E299347D1EABDB730002E449 /* Models */,
 				E299347C1EABDB6F0002E449 /* Views */,
 				E299347B1EABDB6A0002E449 /* View Controllers */,
@@ -102,6 +112,23 @@
 				E29934721EABDB620002E449 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E29934821EABE12D0002E449 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E29934831EABE1490002E449 /* APIManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		E29934851EABE1DE0002E449 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E29934881EABE1E80002E449 /* SwiftyJSON.framework */,
+				E29934861EABE1DF0002E449 /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
 				E29934811EABDBE70002E449 /* ViewController.swift in Sources */,
 				E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */,
 			);
@@ -302,6 +330,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MPF357W934;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Instagram23AndMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakezeal.Instagram23AndMe;
@@ -315,6 +347,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MPF357W934;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Instagram23AndMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jakezeal.Instagram23AndMe;
@@ -342,6 +378,7 @@
 				E299347A1EABDB620002E449 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
