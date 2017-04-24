@@ -17,10 +17,15 @@ class User {
     }
     
     // MARK: - Instance Vars
+    var userId: String
     var username: String
+    var fullName: String
+//    var profilePictureURL: URL?
     
     // MARK: - Initializers
-    init(username: String = "mobile23_tester3") {
+    init(userId: String, username: String, fullName: String) {
+        self.userId = userId
         self.username = username
+        self.fullName = fullName
     }
 }

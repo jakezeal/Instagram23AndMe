@@ -7,17 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E23A28431EABFA01009A9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28421EABFA01009A9E76 /* Constants.swift */; };
+		E23A28451EAE9F74009A9E76 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28441EAE9F74009A9E76 /* HomeViewController.swift */; };
+		E23A28481EAEA962009A9E76 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */; };
+		E23A28491EAEA962009A9E76 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */; };
+		E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */; };
 		E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934691EABDB620002E449 /* AppDelegate.swift */; };
 		E299346F1EABDB620002E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E299346D1EABDB620002E449 /* Main.storyboard */; };
 		E29934711EABDB620002E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29934701EABDB620002E449 /* Assets.xcassets */; };
 		E29934741EABDB620002E449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29934721EABDB620002E449 /* LaunchScreen.storyboard */; };
-		E29934811EABDBE70002E449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934801EABDBE70002E449 /* ViewController.swift */; };
+		E29934811EABDBE70002E449 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934801EABDBE70002E449 /* LoginViewController.swift */; };
 		E29934841EABE1490002E449 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934831EABE1490002E449 /* APIManager.swift */; };
 		E299348D1EABE2CC0002E449 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; };
 		E299348E1EABE2CC0002E449 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934881EABE1E80002E449 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E299348F1EABE2CC0002E449 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; };
 		E29934901EABE2CC0002E449 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E29934861EABE1DF0002E449 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E29934941EABE4460002E449 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934931EABE4460002E449 /* User.swift */; };
+		E29934961EABE6C90002E449 /* InstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934951EABE6C90002E449 /* InstagramService.swift */; };
+		E299349B1EABECB50002E449 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299349A1EABECB50002E449 /* LoginViewModel.swift */; };
+		E299349D1EABF04A0002E449 /* InstagramRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E299349C1EABF04A0002E449 /* InstagramRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,17 +44,25 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E23A28421EABFA01009A9E76 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Supporting Files/Constants.swift"; sourceTree = "<group>"; };
+		E23A28441EAE9F74009A9E76 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "View Controllers/HomeViewController.swift"; sourceTree = "<group>"; };
+		E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = Views/PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostCollectionViewCell.xib; path = Views/PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utilities.swift"; sourceTree = "<group>"; };
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29934691EABDB620002E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E299346E1EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E29934701EABDB620002E449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E29934731EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E29934751EABDB620002E449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E29934801EABDBE70002E449 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "View Controllers/ViewController.swift"; sourceTree = "<group>"; };
+		E29934801EABDBE70002E449 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "View Controllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		E29934831EABE1490002E449 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Networking/APIManager.swift; sourceTree = "<group>"; };
 		E29934861EABE1DF0002E449 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		E29934881EABE1E80002E449 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		E29934931EABE4460002E449 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		E29934951EABE6C90002E449 /* InstagramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramService.swift; path = Services/InstagramService.swift; sourceTree = "<group>"; };
+		E299349A1EABECB50002E449 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = "View Models/LoginViewModel.swift"; sourceTree = "<group>"; };
+		E299349C1EABF04A0002E449 /* InstagramRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramRouter.swift; path = Services/InstagramRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E23A284A1EAEAC36009A9E76 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E23A284D1EAEB096009A9E76 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */,
+				E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		E299345D1EABDB620002E449 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +120,10 @@
 				E29934921EABE3F20002E449 /* Services */,
 				E299347D1EABDB730002E449 /* Models */,
 				E299347C1EABDB6F0002E449 /* Views */,
+				E29934991EABEC5C0002E449 /* View Models */,
 				E299347B1EABDB6A0002E449 /* View Controllers */,
 				E299347F1EABDB880002E449 /* Storyboards */,
+				E23A284A1EAEAC36009A9E76 /* Extensions */,
 				E299347E1EABDB7A0002E449 /* Supporting Files */,
 			);
 			path = Instagram23AndMe;
@@ -97,7 +132,8 @@
 		E299347B1EABDB6A0002E449 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E29934801EABDBE70002E449 /* ViewController.swift */,
+				E29934801EABDBE70002E449 /* LoginViewController.swift */,
+				E23A28441EAE9F74009A9E76 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -105,6 +141,7 @@
 		E299347C1EABDB6F0002E449 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E23A284D1EAEB096009A9E76 /* Table View Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -122,6 +159,7 @@
 			children = (
 				E29934701EABDB620002E449 /* Assets.xcassets */,
 				E29934751EABDB620002E449 /* Info.plist */,
+				E23A28421EABFA01009A9E76 /* Constants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,8 +193,18 @@
 		E29934921EABE3F20002E449 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E29934951EABE6C90002E449 /* InstagramService.swift */,
+				E299349C1EABF04A0002E449 /* InstagramRouter.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		E29934991EABEC5C0002E449 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				E299349A1EABECB50002E449 /* LoginViewModel.swift */,
+			);
+			name = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23A28491EAEA962009A9E76 /* PostCollectionViewCell.xib in Resources */,
 				E29934741EABDB620002E449 /* LaunchScreen.storyboard in Resources */,
 				E29934711EABDB620002E449 /* Assets.xcassets in Resources */,
 				E299346F1EABDB620002E449 /* Main.storyboard in Resources */,
@@ -233,10 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23A28481EAEA962009A9E76 /* PostCollectionViewCell.swift in Sources */,
+				E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */,
+				E299349D1EABF04A0002E449 /* InstagramRouter.swift in Sources */,
 				E29934941EABE4460002E449 /* User.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
-				E29934811EABDBE70002E449 /* ViewController.swift in Sources */,
+				E29934811EABDBE70002E449 /* LoginViewController.swift in Sources */,
 				E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */,
+				E23A28451EAE9F74009A9E76 /* HomeViewController.swift in Sources */,
+				E29934961EABE6C90002E449 /* InstagramService.swift in Sources */,
+				E299349B1EABECB50002E449 /* LoginViewModel.swift in Sources */,
+				E23A28431EABFA01009A9E76 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

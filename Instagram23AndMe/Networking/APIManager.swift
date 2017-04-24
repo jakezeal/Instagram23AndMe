@@ -11,7 +11,7 @@ import Alamofire
 
 final class APIManager {
     
-    static let baseURLString = "https://humanup.io/api"
+    static let baseURLString = "https://api.instagram.com/"
     
     // MARK: - Singleton
     static let shared = APIManager()
@@ -22,5 +22,10 @@ final class APIManager {
     // MARK: - Init
     private init() {
         sessionManager = Alamofire.SessionManager.default
+    }
+    
+    func request(route: URLRequestConvertible) -> DataRequest {
+        return sessionManager.request(route)
+            .validate(statusCode: 200..<300)
     }
 }
