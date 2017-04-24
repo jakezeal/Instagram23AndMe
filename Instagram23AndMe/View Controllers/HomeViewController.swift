@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - Collection View Data Source
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -40,16 +41,22 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
-        
+        cell.delegate = self
+        cell.postImageView.image = #imageLiteral(resourceName: "test_image")
         
         return cell
     }
 }
 
+// MARK: - Collection View Delegate
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-//extension HomeViewController: UICollectionViewDelegate {
-//    
-//}
+// MARK: - Post Collection View Cell Delegate
+extension HomeViewController: PostCollectionViewCellDelegate {
+    func didTap(likeButton: UIButton, on cell: PostCollectionViewCell) {
+        print(#function)
+        // TODO: Logic
+    }
+}
