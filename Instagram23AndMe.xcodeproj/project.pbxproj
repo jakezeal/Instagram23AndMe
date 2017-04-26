@@ -12,6 +12,12 @@
 		E23A28481EAEA962009A9E76 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */; };
 		E23A28491EAEA962009A9E76 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */; };
 		E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */; };
+		E23A284F1EAEB627009A9E76 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A284E1EAEB627009A9E76 /* SearchViewController.swift */; };
+		E23A28521EAEB8E3009A9E76 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28501EAEB8E3009A9E76 /* SearchResultTableViewCell.swift */; };
+		E23A28531EAEB8E3009A9E76 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23A28511EAEB8E3009A9E76 /* SearchResultTableViewCell.xib */; };
+		E23A28551EAEC0D6009A9E76 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28541EAEC0D6009A9E76 /* HeaderView.swift */; };
+		E23A28571EAEC230009A9E76 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28561EAEC230009A9E76 /* UIView+Utilities.swift */; };
+		E23A285B1EB13A45009A9E76 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E23A285A1EB13A45009A9E76 /* KeychainWrapper.m */; };
 		E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934691EABDB620002E449 /* AppDelegate.swift */; };
 		E299346F1EABDB620002E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E299346D1EABDB620002E449 /* Main.storyboard */; };
 		E29934711EABDB620002E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29934701EABDB620002E449 /* Assets.xcassets */; };
@@ -49,6 +55,14 @@
 		E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = Views/PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostCollectionViewCell.xib; path = Views/PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utilities.swift"; sourceTree = "<group>"; };
+		E23A284E1EAEB627009A9E76 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "View Controllers/SearchViewController.swift"; sourceTree = "<group>"; };
+		E23A28501EAEB8E3009A9E76 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultTableViewCell.swift; path = Views/SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		E23A28511EAEB8E3009A9E76 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchResultTableViewCell.xib; path = Views/SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		E23A28541EAEC0D6009A9E76 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = Views/HeaderView.swift; sourceTree = "<group>"; };
+		E23A28561EAEC230009A9E76 /* UIView+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
+		E23A28591EB13A45009A9E76 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		E23A285A1EB13A45009A9E76 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		E23A285F1EB145A8009A9E76 /* Instagram23AndMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram23AndMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29934691EABDB620002E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E299346E1EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E23A284B1EAEACB3009A9E76 /* UIResponder+Utilities.swift */,
+				E23A28561EAEC230009A9E76 /* UIView+Utilities.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -91,8 +106,27 @@
 			children = (
 				E23A28461EAEA962009A9E76 /* PostCollectionViewCell.swift */,
 				E23A28471EAEA962009A9E76 /* PostCollectionViewCell.xib */,
+				E23A28501EAEB8E3009A9E76 /* SearchResultTableViewCell.swift */,
+				E23A28511EAEB8E3009A9E76 /* SearchResultTableViewCell.xib */,
 			);
 			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		E23A28581EB13A34009A9E76 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E23A285C1EB13A51009A9E76 /* KeychainWrapper */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		E23A285C1EB13A51009A9E76 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				E23A28591EB13A45009A9E76 /* KeychainWrapper.h */,
+				E23A285A1EB13A45009A9E76 /* KeychainWrapper.m */,
+			);
+			name = KeychainWrapper;
 			sourceTree = "<group>";
 		};
 		E299345D1EABDB620002E449 = {
@@ -123,6 +157,7 @@
 				E29934991EABEC5C0002E449 /* View Models */,
 				E299347B1EABDB6A0002E449 /* View Controllers */,
 				E299347F1EABDB880002E449 /* Storyboards */,
+				E23A28581EB13A34009A9E76 /* Utilities */,
 				E23A284A1EAEAC36009A9E76 /* Extensions */,
 				E299347E1EABDB7A0002E449 /* Supporting Files */,
 			);
@@ -134,6 +169,7 @@
 			children = (
 				E29934801EABDBE70002E449 /* LoginViewController.swift */,
 				E23A28441EAE9F74009A9E76 /* HomeViewController.swift */,
+				E23A284E1EAEB627009A9E76 /* SearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				E23A284D1EAEB096009A9E76 /* Table View Cells */,
+				E23A28541EAEC0D6009A9E76 /* HeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -160,6 +197,7 @@
 				E29934701EABDB620002E449 /* Assets.xcassets */,
 				E29934751EABDB620002E449 /* Info.plist */,
 				E23A28421EABFA01009A9E76 /* Constants.swift */,
+				E23A285F1EB145A8009A9E76 /* Instagram23AndMe-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -269,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E23A28491EAEA962009A9E76 /* PostCollectionViewCell.xib in Resources */,
+				E23A28531EAEB8E3009A9E76 /* SearchResultTableViewCell.xib in Resources */,
 				E29934741EABDB620002E449 /* LaunchScreen.storyboard in Resources */,
 				E29934711EABDB620002E449 /* Assets.xcassets in Resources */,
 				E299346F1EABDB620002E449 /* Main.storyboard in Resources */,
@@ -288,11 +327,16 @@
 				E29934941EABE4460002E449 /* User.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
 				E29934811EABDBE70002E449 /* LoginViewController.swift in Sources */,
+				E23A284F1EAEB627009A9E76 /* SearchViewController.swift in Sources */,
 				E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */,
 				E23A28451EAE9F74009A9E76 /* HomeViewController.swift in Sources */,
+				E23A285B1EB13A45009A9E76 /* KeychainWrapper.m in Sources */,
 				E29934961EABE6C90002E449 /* InstagramService.swift in Sources */,
 				E299349B1EABECB50002E449 /* LoginViewModel.swift in Sources */,
+				E23A28521EAEB8E3009A9E76 /* SearchResultTableViewCell.swift in Sources */,
 				E23A28431EABFA01009A9E76 /* Constants.swift in Sources */,
+				E23A28551EAEC0D6009A9E76 /* HeaderView.swift in Sources */,
+				E23A28571EAEC230009A9E76 /* UIView+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

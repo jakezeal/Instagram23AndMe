@@ -19,7 +19,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Instance Vars
     weak var delegate: PostCollectionViewCellDelegate?
-    var dispatchWorkItem: DispatchWorkItem!
+//    var dispatchWorkItem: DispatchWorkItem!
     
     // MARK: - Subviews
     @IBOutlet weak var postImageView: UIImageView!
@@ -38,7 +38,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        dispatchWorkItem.cancel()
+//        dispatchWorkItem.cancel()
         postImageView.image = nil
     }
 
