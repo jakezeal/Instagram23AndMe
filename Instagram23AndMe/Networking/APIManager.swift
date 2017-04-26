@@ -11,7 +11,7 @@ import Alamofire
 
 final class APIManager {
     
-    static let baseURLString = "https://api.instagram.com/"
+    static let baseURLString = "https://api.instagram.com/v1"
     
     // MARK: - Singleton
     static let shared = APIManager()

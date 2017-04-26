@@ -35,17 +35,15 @@ extension LoginViewController: UIWebViewDelegate {
         // Break up into components
         var urlComponents = urlString.components(separatedBy: Constants.Instagram.redirectUri)
         guard urlComponents.count > 1 else { return true }
-        //        print(urlComponents)
         
         // Access Token
         let accessTokenUrlString = urlComponents[1]
         guard let accessTokenRange: Range = accessTokenUrlString.range(of: "#access_token="), !accessTokenRange.isEmpty else { return true }
         let accessToken = accessTokenUrlString.substring(from: accessTokenRange.upperBound)
+        print(accessToken)
         
         // Set Item in Keychain
-        let keychainWrapper = KeychainWrapper()
-        keychainWrapper.mySetObject(accessToken, forKey: kSecValueData)
-        keychainWrapper.writeToKeychain()
+        KeychainHelper.shared.setAccessToken(accessToken: accessToken)
         
         
         return false
