@@ -12,8 +12,5 @@ struct Constants {
         // Configured in Project/Info/URLTypes
         static let redirectUri = "https://www.23andme.com"//"Instagram23AndMe://"//"https://www.23andme.com"//"ig0637825256de4d9e9c969ec594b032c8://authorize"//"Instagram23AndMe://"//
     }
-    
-    struct Keychain {
-        static let 
-    }
+
 }
