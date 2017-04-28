@@ -8,23 +8,34 @@
 
 import UIKit
 
+
+
 class SearchViewController: UIViewController {
 
+    // MARK: - Instance Vars
+    let viewModel = SearchViewModel()
+    
+    
     // MARK: - Subviews
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    lazy var searchController = UISearchController(searchResultsController: nil)
     
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-//        searchBar.delegate = self
+
+//        searchController.searchResultsUpdater = self
+//        searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
+//        tableView.tableHeaderView = searchController.searchBar
+        
     }
     
     // MARK: - Setups
     func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
         
         tableView.register(SearchResultTableViewCell.nib(),
                            forCellReuseIdentifier: SearchResultTableViewCell.identifier)
@@ -39,7 +50,24 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // TODO:
+        // TODO: Change based on whether it is places or tags
+        
+        switch viewModel.searchMode {
+        case .places:
+            return 3
+        case .tags:
+            return 1
+        }
+        
+        
+//        return 10 // TODO:
+        
+//        if (isSearching) {
+//            return [filteredContentList count];
+//        }
+//        else {
+//            return [contentList count];
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,5 +79,38 @@ extension SearchViewController: UITableViewDataSource {
 
 // MARK: - Table View Delegate
 extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchResultTableViewCell.height
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchResultTableViewCell.height
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        switch viewModel.searchMode {
+        case .places:
+            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+                viewModel.filteredPlaces = viewModel.places.filter { place in
+                    return place.lowercased().contains(searchText.lowercased())
+                }
+                
+            } else {
+                viewModel.filteredPlaces = viewModel.places
+            }
+            tableView.reloadData()
+        case .tags:
+            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+                viewModel.filteredTags = viewModel.places.filter { tag in
+                    return tag.lowercased().contains(searchText.lowercased())
+                }
+                
+            } else {
+                viewModel.filteredTags = viewModel.places
+            }
+            tableView.reloadData()
+        }
+    }
 }

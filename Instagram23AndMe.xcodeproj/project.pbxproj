@@ -21,6 +21,7 @@
 		E23A28611EB14AAE009A9E76 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28601EB14AAE009A9E76 /* Post.swift */; };
 		E23A28631EB15288009A9E76 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23A28621EB15288009A9E76 /* Authentication.storyboard */; };
 		E23A28651EB155A8009A9E76 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28641EB155A8009A9E76 /* KeychainHelper.swift */; };
+		E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */; };
 		E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934691EABDB620002E449 /* AppDelegate.swift */; };
 		E299346F1EABDB620002E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E299346D1EABDB620002E449 /* Main.storyboard */; };
 		E29934711EABDB620002E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29934701EABDB620002E449 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		E23A28601EB14AAE009A9E76 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
 		E23A28621EB15288009A9E76 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Authentication.storyboard; path = Storyboards/Authentication.storyboard; sourceTree = "<group>"; };
 		E23A28641EB155A8009A9E76 /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Utilities/KeychainHelper.swift; sourceTree = "<group>"; };
+		E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = "View Models/SearchViewModel.swift"; sourceTree = "<group>"; };
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29934691EABDB620002E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E299346E1EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				E299349A1EABECB50002E449 /* LoginViewModel.swift */,
+				E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */,
 				E299349D1EABF04A0002E449 /* InstagramRouter.swift in Sources */,
 				E29934941EABE4460002E449 /* User.swift in Sources */,
+				E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */,
 				E23A28611EB14AAE009A9E76 /* Post.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
 				E29934811EABDBE70002E449 /* LoginViewController.swift in Sources */,

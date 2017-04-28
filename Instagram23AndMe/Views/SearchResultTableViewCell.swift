@@ -16,6 +16,7 @@ class SearchResultTableViewCell: UITableViewCell {
 
     // MARK: - Class Vars
     static let identifier = SearchResultTableViewCell.toString()
+    static let height: CGFloat = 44
     
     // MARK: - Instance Vars
     weak var delegate: SearchResultTableViewCellDelegate?
