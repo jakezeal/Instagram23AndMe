@@ -15,6 +15,7 @@ enum PostError: Error {
 }
 
 class InstagramService {
+    // User Photos
     class func fetchRecentUserPhotos(completionHandler: @escaping (Result<[ImagePost]>) -> Void) {
         guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
         APIManager.shared.request(route: InstagramRouter.fetchRecentUserPhotos(token)).responseJSON { (response) in
@@ -33,6 +34,7 @@ class InstagramService {
         }
     }
     
+    // Liking
     class func likePost(withMediaId mediaId: String, completionHandler: @escaping () -> Void) {
         guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
         APIManager.shared.request(route: InstagramRouter.likePost(mediaId, token)).responseJSON { (response) in
@@ -51,6 +53,22 @@ class InstagramService {
     class func unlikePost(withMediaId mediaId: String, completionHandler: @escaping () -> Void) {
         guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
         APIManager.shared.request(route: InstagramRouter.unlikePost(mediaId, token)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                print(value)
+                completionHandler()
+                
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                completionHandler()
+            }
+        }
+    }
+    
+    // Search
+    class func searchPlace(withLatitude latitude: Float, longitude: Float, completionHandler: @escaping () -> Void) {
+        guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
+        APIManager.shared.request(route: InstagramRouter.searchPlace(latitude, longitude, token)).responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 print(value)

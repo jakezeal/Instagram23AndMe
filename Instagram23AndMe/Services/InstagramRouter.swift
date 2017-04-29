@@ -14,7 +14,7 @@ enum InstagramRouter: URLRequestConvertible {
     case fetchRecentUserPhotos(String)
     case likePost(String, String)
     case unlikePost(String, String)
-    case searchPlace(Float, Float)
+    case searchPlace(Float, Float, String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
