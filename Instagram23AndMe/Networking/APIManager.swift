@@ -21,14 +21,10 @@ final class APIManager {
     
     // MARK: - Init
     private init() {
-        sessionManager = Alamofire.SessionManager.default
-        setOrRefreshHeaderAdapter()
+        sessionManager = Alamofire.SessionManager.default 
     }
     
     // MARK: - Helpers
-    private func setOrRefreshHeaderAdapter() {
-        sessionManager.adapter = HeadersAdapter()
-    }
     
     func request(route: URLRequestConvertible) -> DataRequest {
         return sessionManager.request(route)

@@ -22,7 +22,6 @@
 		E23A28631EB15288009A9E76 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23A28621EB15288009A9E76 /* Authentication.storyboard */; };
 		E23A28651EB155A8009A9E76 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28641EB155A8009A9E76 /* KeychainHelper.swift */; };
 		E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */; };
-		E23A28691EB3C746009A9E76 /* HeadersAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */; };
 		E23A286B1EB3C8D2009A9E76 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A286A1EB3C8D2009A9E76 /* HomeViewModel.swift */; };
 		E23A28741EB417FE009A9E76 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23A28721EB417DB009A9E76 /* Kingfisher.framework */; };
 		E23A28751EB417FE009A9E76 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E23A28721EB417DB009A9E76 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -76,7 +75,6 @@
 		E23A28621EB15288009A9E76 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Authentication.storyboard; path = Storyboards/Authentication.storyboard; sourceTree = "<group>"; };
 		E23A28641EB155A8009A9E76 /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Utilities/KeychainHelper.swift; sourceTree = "<group>"; };
 		E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = "View Models/SearchViewModel.swift"; sourceTree = "<group>"; };
-		E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadersAdapter.swift; path = Networking/HeadersAdapter.swift; sourceTree = "<group>"; };
 		E23A286A1EB3C8D2009A9E76 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = "View Models/HomeViewModel.swift"; sourceTree = "<group>"; };
 		E23A28721EB417DB009A9E76 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				E29934831EABE1490002E449 /* APIManager.swift */,
-				E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -350,7 +347,6 @@
 				E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */,
 				E299349D1EABF04A0002E449 /* InstagramRouter.swift in Sources */,
 				E29934941EABE4460002E449 /* User.swift in Sources */,
-				E23A28691EB3C746009A9E76 /* HeadersAdapter.swift in Sources */,
 				E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */,
 				E23A28611EB14AAE009A9E76 /* ImagePost.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
