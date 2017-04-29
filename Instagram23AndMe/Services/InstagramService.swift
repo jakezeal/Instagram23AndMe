@@ -10,24 +10,36 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-enum PostError: Swift.Error {
+enum PostError: Error {
     case error
 }
 
 class InstagramService {
-//    func fetchRecentUserPhotos(completionHandler: @escaping (Result<[Post]>) -> Void) {
-//        APIManager.shared.request(route: InstagramRouter.fetchRecentUserPhotos()).responseJSON { (response) in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-//                print(json)
-//                
-//                
-//                
-//            case .failure(let error):
-//                assertionFailure(error.localizedDescription)
-////                completionHandler(.error(error))
-//            }
-//        }
-//    }
+    class func fetchRecentUserPhotos(completionHandler: @escaping (Result<[ImagePost]>) -> Void) {
+        guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
+        APIManager.shared.request(route: InstagramRouter.fetchRecentUserPhotos(token)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                if let data = json["data"].array {
+                    let posts = data.flatMap(ImagePost.init)
+                    completionHandler(.success(posts))
+                }
+//                let data = json["data"]
+//                let type = data["type"]
+//                print(data[0]["type"])
+//                let posts = json.flatMap { ImagePost(json: json) }
+            
+                
+//                let posts = json.flatMap(ImagePost(json: json))
+                
+                
+                
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                completionHandler(.failure(error))
+//                completionHandler(.error(error))
+            }
+        }
+    }
 }

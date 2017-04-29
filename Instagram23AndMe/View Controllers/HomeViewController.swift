@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController {
-
+    
+    // MARK: - Instance Vars
+    let viewModel = HomeViewModel()
+    
     // MARK: - Subviews
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -17,7 +21,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        
+        fetchRecentUserPhotos()
+
     }
     
     // MARK: - Setups
@@ -26,6 +31,12 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(PostCollectionViewCell.nib(), forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
+    }
+    
+    func fetchRecentUserPhotos() {
+        viewModel.fetchRecentUserPhotos { (imagePosts) in
+            print(imagePosts)
+        }
     }
 }
 
@@ -36,16 +47,34 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // TODO:
+        return viewModel.imagePosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
-        cell.delegate = self
-        cell.postImageView.image = #imageLiteral(resourceName: "test_image")
+        configure(cell, atIndexPath: indexPath)
         
         return cell
     }
+    
+    // Configure Cells
+    private func configure(_ cell: PostCollectionViewCell, atIndexPath indexPath: IndexPath) {
+        
+        let imagePost = viewModel.imagePosts[indexPath.row]
+        
+        let imageURL = URL(string: imagePost.imageURLString)
+        
+        cell.postImageView.kf.setImage(with: imageURL, completionHandler: {
+            (image, error, cacheType, imageUrl) in
+            if let error = error {
+                assertionFailure("Error on \(#function): \(error.localizedDescription)")
+            }
+        })
+        
+        cell.delegate = self
+        
+    }
+
 }
 
 // MARK: - Collection View Delegate

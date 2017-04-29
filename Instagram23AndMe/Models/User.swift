@@ -20,7 +20,7 @@ class User {
     var userId: String
     var username: String
     var fullName: String
-//    var profilePictureURL: URL?
+    var profilePictureURL: URL?
     
     // MARK: - Initializers
     init(userId: String, username: String, fullName: String) {

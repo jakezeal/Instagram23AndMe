@@ -18,10 +18,14 @@
 		E23A28551EAEC0D6009A9E76 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28541EAEC0D6009A9E76 /* HeaderView.swift */; };
 		E23A28571EAEC230009A9E76 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28561EAEC230009A9E76 /* UIView+Utilities.swift */; };
 		E23A285B1EB13A45009A9E76 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E23A285A1EB13A45009A9E76 /* KeychainWrapper.m */; };
-		E23A28611EB14AAE009A9E76 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28601EB14AAE009A9E76 /* Post.swift */; };
+		E23A28611EB14AAE009A9E76 /* ImagePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28601EB14AAE009A9E76 /* ImagePost.swift */; };
 		E23A28631EB15288009A9E76 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23A28621EB15288009A9E76 /* Authentication.storyboard */; };
 		E23A28651EB155A8009A9E76 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28641EB155A8009A9E76 /* KeychainHelper.swift */; };
 		E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */; };
+		E23A28691EB3C746009A9E76 /* HeadersAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */; };
+		E23A286B1EB3C8D2009A9E76 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A286A1EB3C8D2009A9E76 /* HomeViewModel.swift */; };
+		E23A28741EB417FE009A9E76 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23A28721EB417DB009A9E76 /* Kingfisher.framework */; };
+		E23A28751EB417FE009A9E76 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E23A28721EB417DB009A9E76 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E299346A1EABDB620002E449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29934691EABDB620002E449 /* AppDelegate.swift */; };
 		E299346F1EABDB620002E449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E299346D1EABDB620002E449 /* Main.storyboard */; };
 		E29934711EABDB620002E449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E29934701EABDB620002E449 /* Assets.xcassets */; };
@@ -46,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E299348E1EABE2CC0002E449 /* SwiftyJSON.framework in Embed Frameworks */,
+				E23A28751EB417FE009A9E76 /* Kingfisher.framework in Embed Frameworks */,
 				E29934901EABE2CC0002E449 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -67,10 +72,13 @@
 		E23A28591EB13A45009A9E76 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		E23A285A1EB13A45009A9E76 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		E23A285F1EB145A8009A9E76 /* Instagram23AndMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram23AndMe-Bridging-Header.h"; sourceTree = "<group>"; };
-		E23A28601EB14AAE009A9E76 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
+		E23A28601EB14AAE009A9E76 /* ImagePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePost.swift; path = Models/ImagePost.swift; sourceTree = "<group>"; };
 		E23A28621EB15288009A9E76 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Authentication.storyboard; path = Storyboards/Authentication.storyboard; sourceTree = "<group>"; };
 		E23A28641EB155A8009A9E76 /* KeychainHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainHelper.swift; path = Utilities/KeychainHelper.swift; sourceTree = "<group>"; };
 		E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewModel.swift; path = "View Models/SearchViewModel.swift"; sourceTree = "<group>"; };
+		E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeadersAdapter.swift; path = Networking/HeadersAdapter.swift; sourceTree = "<group>"; };
+		E23A286A1EB3C8D2009A9E76 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = "View Models/HomeViewModel.swift"; sourceTree = "<group>"; };
+		E23A28721EB417DB009A9E76 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		E29934661EABDB620002E449 /* Instagram23AndMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram23AndMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29934691EABDB620002E449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E299346E1EABDB620002E449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E299348D1EABE2CC0002E449 /* SwiftyJSON.framework in Frameworks */,
+				E23A28741EB417FE009A9E76 /* Kingfisher.framework in Frameworks */,
 				E299348F1EABE2CC0002E449 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				E29934931EABE4460002E449 /* User.swift */,
-				E23A28601EB14AAE009A9E76 /* Post.swift */,
+				E23A28601EB14AAE009A9E76 /* ImagePost.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E29934831EABE1490002E449 /* APIManager.swift */,
+				E23A28681EB3C746009A9E76 /* HeadersAdapter.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 		E29934851EABE1DE0002E449 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E23A28721EB417DB009A9E76 /* Kingfisher.framework */,
 				E29934881EABE1E80002E449 /* SwiftyJSON.framework */,
 				E29934861EABE1DF0002E449 /* Alamofire.framework */,
 			);
@@ -253,6 +264,7 @@
 			children = (
 				E299349A1EABECB50002E449 /* LoginViewModel.swift */,
 				E23A28661EB15DD1009A9E76 /* SearchViewModel.swift */,
+				E23A286A1EB3C8D2009A9E76 /* HomeViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -338,8 +350,9 @@
 				E23A284C1EAEACB3009A9E76 /* UIResponder+Utilities.swift in Sources */,
 				E299349D1EABF04A0002E449 /* InstagramRouter.swift in Sources */,
 				E29934941EABE4460002E449 /* User.swift in Sources */,
+				E23A28691EB3C746009A9E76 /* HeadersAdapter.swift in Sources */,
 				E23A28671EB15DD1009A9E76 /* SearchViewModel.swift in Sources */,
-				E23A28611EB14AAE009A9E76 /* Post.swift in Sources */,
+				E23A28611EB14AAE009A9E76 /* ImagePost.swift in Sources */,
 				E29934841EABE1490002E449 /* APIManager.swift in Sources */,
 				E29934811EABDBE70002E449 /* LoginViewController.swift in Sources */,
 				E23A284F1EAEB627009A9E76 /* SearchViewController.swift in Sources */,
@@ -349,6 +362,7 @@
 				E29934961EABE6C90002E449 /* InstagramService.swift in Sources */,
 				E299349B1EABECB50002E449 /* LoginViewModel.swift in Sources */,
 				E23A28651EB155A8009A9E76 /* KeychainHelper.swift in Sources */,
+				E23A286B1EB3C8D2009A9E76 /* HomeViewModel.swift in Sources */,
 				E23A28521EAEB8E3009A9E76 /* SearchResultTableViewCell.swift in Sources */,
 				E23A28431EABFA01009A9E76 /* Constants.swift in Sources */,
 				E23A28551EAEC0D6009A9E76 /* HeaderView.swift in Sources */,

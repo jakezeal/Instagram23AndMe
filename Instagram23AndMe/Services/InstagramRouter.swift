@@ -11,7 +11,7 @@ import Alamofire
 
 enum InstagramRouter: URLRequestConvertible {
     
-    case fetchRecentUserPhotos(Bool)
+    case fetchRecentUserPhotos(String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
@@ -23,8 +23,8 @@ enum InstagramRouter: URLRequestConvertible {
         
         let params: ([String : Any]?) = {
             switch self {
-            case .fetchRecentUserPhotos:
-                return nil
+            case .fetchRecentUserPhotos(let token):
+                return ["access_token": token]
             }
         }()
         
