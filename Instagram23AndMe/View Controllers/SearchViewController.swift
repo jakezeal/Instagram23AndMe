@@ -29,6 +29,9 @@ class SearchViewController: UIViewController {
     // MARK: - Setups
     func setupCollectionView() {
         collectionView.register(PostCollectionViewCell.nib(), forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(collectionViewTapped))
+        collectionView.addGestureRecognizer(tap)
     }
     
     func setupSegmentedControl() {
@@ -53,6 +56,10 @@ class SearchViewController: UIViewController {
         default:
             viewModel.searchMode = .places
         }
+    }
+    
+    func collectionViewTapped() {
+        searchBar.resignFirstResponder()
     }
     
 }
@@ -140,7 +147,10 @@ extension SearchViewController: UISearchBarDelegate {
                 self.collectionView.reloadData()
             }
         }
-        
-        //TODO: Resign first responder
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
