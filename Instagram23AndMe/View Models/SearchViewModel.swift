@@ -10,17 +10,47 @@ import Foundation
 
 class SearchViewModel {
 
+    // MARK: - Enums
     enum SearchMode {
         case places
         case tags
     }
     
-//    let places = ["Toronto, San Francisco, Vancouver"]
-//    let tags = ["puppies, dogs, kittens"]
+    // MARK: - Instance Vars
+    var filteredPosts: [ImagePost] = []
     
-    var filteredPlaces: [String] = []
-    var filteredTags: [String] = []
+    var searchMode: SearchMode = .places
     
-    let searchMode: SearchMode = .places
+    // MARK: - Helpers
+    func userLiked(imagePost: ImagePost, completionHandler: @escaping (String) -> Void) {
+        if imagePost.userHasLiked {
+            InstagramService.unlikePost(withMediaId: imagePost.mediaId, completionHandler: {
+                imagePost.userHasLiked = !imagePost.userHasLiked
+                completionHandler("Like")
+                
+            })
+        } else {
+            InstagramService.likePost(withMediaId: imagePost.mediaId, completionHandler: {
+                imagePost.userHasLiked = !imagePost.userHasLiked
+                completionHandler("Unlike")
+            })
+        }
+    }
     
+    // Search
+    func searchPlace(withLatitude latitude: Float = 37.773972, longitude: Float = -122.431297, completionHandler: @escaping () -> Void) {
+        InstagramService.searchPlace(withLatitude: latitude, longitude: longitude, completionHandler: { (filteredPosts) in
+            guard let filteredPosts = filteredPosts.value else { return }
+            self.filteredPosts = filteredPosts
+            completionHandler()
+        })
+    }
+    
+    func searchTag(withTagString tagString: String = "snowy", completionHandler: @escaping () -> Void) {
+        InstagramService.searchTag(withTagString: tagString, completionHandler: { (filteredPosts) in
+            guard let filteredPosts = filteredPosts.value else { return }
+            self.filteredPosts = filteredPosts
+            completionHandler()
+        })
+    }
 }

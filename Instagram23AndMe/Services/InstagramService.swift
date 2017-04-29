@@ -66,17 +66,38 @@ class InstagramService {
     }
     
     // Search
-    class func searchPlace(withLatitude latitude: Float = 48.8, longitude: Float = 2.2, completionHandler: @escaping () -> Void) {
+    class func searchPlace(withLatitude latitude: Float, longitude: Float, completionHandler: @escaping (Result<[ImagePost]>) -> Void) {
         guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
         APIManager.shared.request(route: InstagramRouter.searchPlace(latitude, longitude, token)).responseJSON { (response) in
             switch response.result {
             case .success(let value):
-                print(value)
-                completionHandler()
+                let json = JSON(value)
+                if let data = json["data"].array {
+                    let posts = data.flatMap(ImagePost.init)
+                    completionHandler(.success(posts))
+                }
                 
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
-                completionHandler()
+                completionHandler(.failure(error))
+            }
+        }
+    }
+    
+    class func searchTag(withTagString tagString: String, completionHandler: @escaping (Result<[ImagePost]>) -> Void) {
+        guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
+        APIManager.shared.request(route: InstagramRouter.searchTag(tagString, token)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                if let data = json["data"].array {
+                    let posts = data.flatMap(ImagePost.init)
+                    completionHandler(.success(posts))
+                }
+                
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                completionHandler(.failure(error))
             }
         }
     }

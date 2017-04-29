@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class SearchViewController: UIViewController {
 
     // MARK: - Instance Vars
@@ -17,115 +15,132 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - Subviews
-    @IBOutlet weak var tableView: UITableView!
-    
-    lazy var searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - View Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        
+        setupCollectionView()
+        setupSegmentedControl()
     }
     
     // MARK: - Setups
-    func setupTableView() {
-        
-        tableView.register(SearchResultTableViewCell.nib(),
-                           forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+    func setupCollectionView() {
+        collectionView.register(PostCollectionViewCell.nib(), forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
+    }
+    
+    func setupSegmentedControl() {
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
     }
     
     // MARK: - Helpers
-    func filterPlacesForSearchText(searchText: String, scope: String = "All") {
-        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-            viewModel.filteredPlaces = viewModel.places.filter { place in
-                return place.lowercased().contains(searchText.lowercased())
-            }
-            
-        } else {
-            viewModel.filteredPlaces = viewModel.places
+    func longitudeAndLatitudeFromPlace(searchText: String) {
+        // TODO: Turn place passed in, into latitude and longitude
+    }
+    
+    func filterPlacesForSearchText(searchText: String) {
+        // TODO: Extra - Display list of suggested places based on what are typing
+    }
+    
+    func segmentedControlValueChanged() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            viewModel.searchMode = .places
+        case 1:
+            viewModel.searchMode = .tags
+        default:
+            viewModel.searchMode = .places
         }
+    }
+    
+}
+
+// MARK: - Collection View Data Source
+extension SearchViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.filteredPosts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
+        configure(cell, atIndexPath: indexPath)
+        
+        return cell
+    }
+    
+    // Configure Cells
+    private func configure(_ cell: PostCollectionViewCell, atIndexPath indexPath: IndexPath) {
+        
+        let imagePost = viewModel.filteredPosts[indexPath.row]
+        
+        let imageURL = URL(string: imagePost.imageURLString)
+        
+        cell.postImageView.kf.setImage(with: imageURL, completionHandler: {
+            (image, error, cacheType, imageUrl) in
+            if let error = error {
+                assertionFailure("Error on \(#function): \(error.localizedDescription)")
+            }
+        })
+        
+        if imagePost.userHasLiked {
+            cell.likeButton.setTitle("Unlike", for: .normal)
+        } else {
+            cell.likeButton.setTitle("Like", for: .normal)
+        }
+        
+        cell.delegate = self
         
     }
     
 }
 
-// MARK: - Table View Data Source
-extension SearchViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch viewModel.searchMode {
-        case .places:
-            if searchController.isActive && searchController.searchBar.text != "" {
-                return viewModel.filteredPlaces.count
-            }
-            
-            return viewModel.places.count
-        case .tags:
-            if searchController.isActive && searchController.searchBar.text != "" {
-                return viewModel.filteredTags.count
-            }
-            return viewModel.tags.count
+// MARK: - Post Collection View Cell Delegate
+extension SearchViewController: PostCollectionViewCellDelegate {
+    func didTap(likeButton: UIButton, on cell: PostCollectionViewCell) {
+        print(#function)
+        // Disable button until network call completes
+        likeButton.isEnabled = false
+        // Get index path of cell
+        guard let indexPath = collectionView.indexPathForItem(at: cell.center) else { return }
+        // Get ImagePost
+        let imagePost = viewModel.filteredPosts[indexPath.row]
+        
+        // Make network request
+        viewModel.userLiked(imagePost: imagePost) { (titleString: String) in
+            cell.likeButton.setTitle(titleString, for: .normal)
+            likeButton.isEnabled = true
         }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath)
-    
-        return cell
+        
+        
     }
 }
 
-// MARK: - Table View Delegate
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchResultTableViewCell.height
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchResultTableViewCell.height
-    }
-}
-
-// MARK: - Search Controller Delegate
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
+// MARK: - Search Bar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterPlacesForSearchText(searchText: searchText)
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        switch viewModel.searchMode {
+        case .places:
+            longitudeAndLatitudeFromPlace(searchText: searchText)
+            viewModel.searchPlace {
+                self.collectionView.reloadData()
+            }
+        case .tags:
+            viewModel.searchTag {
+                self.collectionView.reloadData()
+            }
+        }
+        
+        //TODO: Resign first responder
+    }
 }
-
-//extension SearchViewController: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        switch viewModel.searchMode {
-//        case .places:
-//            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-//                viewModel.filteredPlaces = viewModel.places.filter { place in
-//                    return place.lowercased().contains(searchText.lowercased())
-//                }
-//                
-//            } else {
-//                viewModel.filteredPlaces = viewModel.places
-//            }
-//            tableView.reloadData()
-//        case .tags:
-//            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-//                viewModel.filteredTags = viewModel.places.filter { tag in
-//                    return tag.lowercased().contains(searchText.lowercased())
-//                }
-//                
-//            } else {
-//                viewModel.filteredTags = viewModel.places
-//            }
-//            tableView.reloadData()
-//        }
-//    }
-//}
