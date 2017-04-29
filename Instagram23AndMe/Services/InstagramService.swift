@@ -10,10 +10,6 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-enum PostError: Error {
-    case error
-}
-
 class InstagramService {
     // User Photos
     class func fetchRecentUserPhotos(completionHandler: @escaping (Result<[ImagePost]>) -> Void) {

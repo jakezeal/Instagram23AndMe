@@ -25,7 +25,6 @@ final class APIManager {
     }
     
     // MARK: - Helpers
-    
     func request(route: URLRequestConvertible) -> DataRequest {
         return sessionManager.request(route)
             .validate(statusCode: 200..<300)
