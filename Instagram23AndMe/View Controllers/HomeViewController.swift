@@ -27,9 +27,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Setups
     func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         collectionView.register(PostCollectionViewCell.nib(), forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
     }
     
@@ -83,11 +80,6 @@ extension HomeViewController: UICollectionViewDataSource {
         
     }
 
-}
-
-// MARK: - Collection View Delegate
-extension HomeViewController: UICollectionViewDelegate {
-    
 }
 
 // MARK: - Post Collection View Cell Delegate

@@ -9,6 +9,7 @@
 import Foundation
 
 class HomeViewModel {
+    // MARK: - Instance Vars
     var imagePosts: [ImagePost] = []
     
     // MARK: - Helpers
