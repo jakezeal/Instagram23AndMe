@@ -20,12 +20,6 @@ class SearchResultTableViewCell: UITableViewCell {
     
     // MARK: - Instance Vars
     weak var delegate: SearchResultTableViewCellDelegate?
-    var dispatchWorkItem: DispatchWorkItem!
-    
-    // MARK: - Subviews
-    
-    
-    // MARK: - IBActions
     
     // MARK: - Cell Lifecycles
     override func awakeFromNib() {
