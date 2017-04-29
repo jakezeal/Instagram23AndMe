@@ -46,7 +46,7 @@
                             <constraint firstItem="WSC-7K-Nct" firstAttribute="leading" secondItem="VoT-yP-C30" secondAttribute="leading" id="a6n-sj-iHI"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="VCb-lC-rs7"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="ic_tabbar_home" id="VCb-lC-rs7"/>
                     <connections>
                         <outlet property="collectionView" destination="WSC-7K-Nct" id="UVm-Uz-1P1"/>
                     </connections>
@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="2030" y="-489"/>
         </scene>
-        <!--Search-->
+        <!--Search View Controller-->
         <scene sceneID="Pwz-Su-58B">
             <objects>
                 <viewController id="bcC-lp-ngi" customClass="SearchViewController" customModule="Instagram23AndMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <constraint firstItem="Za0-5a-2hh" firstAttribute="top" secondItem="inD-Hx-VbZ" secondAttribute="bottom" id="uZS-6Q-XeE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="Np6-XZ-B3G"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Np6-XZ-B3G"/>
                     <connections>
                         <outlet property="collectionView" destination="inD-Hx-VbZ" id="M2F-Ua-Tal"/>
                         <outlet property="searchBar" destination="bJU-Uo-baB" id="49S-IM-qeg"/>
@@ -160,4 +160,7 @@
             <point key="canvasLocation" x="1092" y="112.89355322338831"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_tabbar_home" width="25" height="25"/>
+    </resources>
 </document>
