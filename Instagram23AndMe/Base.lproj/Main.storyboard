@@ -66,15 +66,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3eN-mE-UVw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="bcC-lp-ngi" id="dRF-h4-26Q"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ML7-Q7-ZLz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="bcC-lp-ngi" id="bTp-bF-gtr"/>
@@ -84,18 +77,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ML7-Q7-ZLz" firstAttribute="leading" secondItem="M8V-NI-Dbu" secondAttribute="leading" id="4GA-kA-Kb9"/>
-                            <constraint firstItem="3eN-mE-UVw" firstAttribute="leading" secondItem="M8V-NI-Dbu" secondAttribute="leading" id="8us-pF-oCN"/>
-                            <constraint firstItem="ML7-Q7-ZLz" firstAttribute="top" secondItem="3eN-mE-UVw" secondAttribute="bottom" id="K8K-wW-kqJ"/>
-                            <constraint firstAttribute="trailing" secondItem="3eN-mE-UVw" secondAttribute="trailing" id="Lsl-Eu-HQi"/>
-                            <constraint firstAttribute="trailing" secondItem="ML7-Q7-ZLz" secondAttribute="trailing" id="RVr-qm-srN"/>
-                            <constraint firstItem="3eN-mE-UVw" firstAttribute="top" secondItem="2Bw-M9-7iS" secondAttribute="bottom" id="eqR-Vm-CHg"/>
-                            <constraint firstItem="Za0-5a-2hh" firstAttribute="top" secondItem="ML7-Q7-ZLz" secondAttribute="bottom" id="njT-GP-9PE"/>
+                            <constraint firstAttribute="trailing" secondItem="ML7-Q7-ZLz" secondAttribute="trailing" id="6at-LD-o9I"/>
+                            <constraint firstItem="Za0-5a-2hh" firstAttribute="top" secondItem="ML7-Q7-ZLz" secondAttribute="bottom" id="ByV-GH-Uvd"/>
+                            <constraint firstItem="ML7-Q7-ZLz" firstAttribute="top" secondItem="2Bw-M9-7iS" secondAttribute="bottom" id="Ts9-p4-Nsj"/>
+                            <constraint firstItem="ML7-Q7-ZLz" firstAttribute="leading" secondItem="M8V-NI-Dbu" secondAttribute="leading" id="oG6-U7-MLc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="Np6-XZ-B3G"/>
                     <connections>
-                        <outlet property="searchBar" destination="3eN-mE-UVw" id="7vl-7r-9tp"/>
                         <outlet property="searchDisplayController" destination="95W-iA-4RO" id="Owx-lK-LuH"/>
                         <outlet property="tableView" destination="ML7-Q7-ZLz" id="3ce-4Z-RQr"/>
                     </connections>
@@ -104,7 +93,6 @@
                 <searchDisplayController id="95W-iA-4RO">
                     <connections>
                         <outlet property="delegate" destination="bcC-lp-ngi" id="BNp-Xw-j57"/>
-                        <outlet property="searchBar" destination="3eN-mE-UVw" id="y2y-CB-yZf"/>
                         <outlet property="searchContentsController" destination="bcC-lp-ngi" id="tvQ-l0-fLe"/>
                         <outlet property="searchResultsDataSource" destination="bcC-lp-ngi" id="hbd-Is-cKP"/>
                         <outlet property="searchResultsDelegate" destination="bcC-lp-ngi" id="Fem-B0-iIx"/>

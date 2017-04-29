@@ -14,11 +14,12 @@ enum InstagramRouter: URLRequestConvertible {
     case fetchRecentUserPhotos(String)
     case likePost(String, String)
     case unlikePost(String, String)
+    case searchPlace(Float, Float)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .fetchRecentUserPhotos:
+            case .fetchRecentUserPhotos, .searchPlace:
                 return .get
             case .likePost:
                 return .post
@@ -31,6 +32,8 @@ enum InstagramRouter: URLRequestConvertible {
             switch self {
             case .fetchRecentUserPhotos(let token), .likePost(_, let token), .unlikePost(_, let token):
                 return ["access_token": token]
+            case .searchPlace(let latitude, let longitude, let token):
+                return ["lat": latitude, "lng": longitude, "access_token": token]
             }
         }()
         
@@ -40,6 +43,8 @@ enum InstagramRouter: URLRequestConvertible {
                 return "users/self/media/recent/"
             case .likePost(let mediaId, _), .unlikePost(let mediaId, _):
                 return "/media/\(mediaId)/likes"
+            case .searchPlace:
+                return "media/search"
             }
         }()
         
@@ -52,10 +57,8 @@ enum InstagramRouter: URLRequestConvertible {
         
         let encoding: ParameterEncoding = {
             switch self {
-            case .fetchRecentUserPhotos, .likePost, .unlikePost:
-                return URLEncoding.default
-            default:
-                return JSONEncoding.default
+            case .fetchRecentUserPhotos, .likePost, .unlikePost, .searchPlace:
+                return URLEncoding.queryString
             }
         }()
         

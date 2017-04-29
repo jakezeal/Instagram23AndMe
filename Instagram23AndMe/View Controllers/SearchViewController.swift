@@ -17,7 +17,6 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - Subviews
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     lazy var searchController = UISearchController(searchResultsController: nil)
@@ -27,10 +26,10 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
 
-//        searchController.searchResultsUpdater = self
-//        searchController.hidesNavigationBarDuringPresentation = false
-//        searchController.dimsBackgroundDuringPresentation = false
-//        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
         
     }
     
@@ -39,6 +38,19 @@ class SearchViewController: UIViewController {
         
         tableView.register(SearchResultTableViewCell.nib(),
                            forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+    }
+    
+    // MARK: - Helpers
+    func filterPlacesForSearchText(searchText: String, scope: String = "All") {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            viewModel.filteredPlaces = viewModel.places.filter { place in
+                return place.lowercased().contains(searchText.lowercased())
+            }
+            
+        } else {
+            viewModel.filteredPlaces = viewModel.places
+        }
+        
     }
     
 }
@@ -50,24 +62,19 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Change based on whether it is places or tags
-        
         switch viewModel.searchMode {
         case .places:
-            return 3
+            if searchController.isActive && searchController.searchBar.text != "" {
+                return viewModel.filteredPlaces.count
+            }
+            
+            return viewModel.places.count
         case .tags:
-            return 1
+            if searchController.isActive && searchController.searchBar.text != "" {
+                return viewModel.filteredTags.count
+            }
+            return viewModel.tags.count
         }
-        
-        
-//        return 10 // TODO:
-        
-//        if (isSearching) {
-//            return [filteredContentList count];
-//        }
-//        else {
-//            return [contentList count];
-//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,29 +95,37 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - Search Controller Delegate
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        switch viewModel.searchMode {
-        case .places:
-            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-                viewModel.filteredPlaces = viewModel.places.filter { place in
-                    return place.lowercased().contains(searchText.lowercased())
-                }
-                
-            } else {
-                viewModel.filteredPlaces = viewModel.places
-            }
-            tableView.reloadData()
-        case .tags:
-            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
-                viewModel.filteredTags = viewModel.places.filter { tag in
-                    return tag.lowercased().contains(searchText.lowercased())
-                }
-                
-            } else {
-                viewModel.filteredTags = viewModel.places
-            }
-            tableView.reloadData()
-        }
+        guard let searchText = searchController.searchBar.text else { return }
+        filterPlacesForSearchText(searchText: searchText)
     }
 }
+
+//extension SearchViewController: UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        switch viewModel.searchMode {
+//        case .places:
+//            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+//                viewModel.filteredPlaces = viewModel.places.filter { place in
+//                    return place.lowercased().contains(searchText.lowercased())
+//                }
+//                
+//            } else {
+//                viewModel.filteredPlaces = viewModel.places
+//            }
+//            tableView.reloadData()
+//        case .tags:
+//            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+//                viewModel.filteredTags = viewModel.places.filter { tag in
+//                    return tag.lowercased().contains(searchText.lowercased())
+//                }
+//                
+//            } else {
+//                viewModel.filteredTags = viewModel.places
+//            }
+//            tableView.reloadData()
+//        }
+//    }
+//}

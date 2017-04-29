@@ -18,8 +18,8 @@ class SearchViewModel {
     let places = ["Toronto, San Francisco, Vancouver"]
     let tags = ["puppies, dogs, kittens"]
     
-    var filteredPlaces: [String]?
-    var filteredTags: [String]?
+    var filteredPlaces: [String] = []
+    var filteredTags: [String] = []
     
     let searchMode: SearchMode = .places
     
