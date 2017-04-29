@@ -8,11 +8,11 @@
 
 import Foundation
 
-class User {
+struct User {
     static var current: User?
     
     // MARK: - Class Methods
-    class func set(currentUser: User) {
+    static func set(currentUser: User) {
         current = currentUser
     }
     
@@ -23,9 +23,10 @@ class User {
     var profilePictureURL: URL?
     
     // MARK: - Initializers
-    init(userId: String, username: String, fullName: String) {
+    init(userId: String, username: String, fullName: String, profilePictureURL: URL) {
         self.userId = userId
         self.username = username
         self.fullName = fullName
+        self.profilePictureURL = profilePictureURL
     }
 }
