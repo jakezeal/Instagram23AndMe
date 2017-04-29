@@ -25,20 +25,40 @@ class InstagramService {
                     let posts = data.flatMap(ImagePost.init)
                     completionHandler(.success(posts))
                 }
-//                let data = json["data"]
-//                let type = data["type"]
-//                print(data[0]["type"])
-//                let posts = json.flatMap { ImagePost(json: json) }
-            
-                
-//                let posts = json.flatMap(ImagePost(json: json))
-                
-                
                 
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
                 completionHandler(.failure(error))
-//                completionHandler(.error(error))
+            }
+        }
+    }
+    
+    class func likePost(withMediaId mediaId: String, completionHandler: @escaping () -> Void) {
+        guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
+        APIManager.shared.request(route: InstagramRouter.likePost(mediaId, token)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                print(value)
+                completionHandler()
+                
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                completionHandler()
+            }
+        }
+    }
+    
+    class func unlikePost(withMediaId mediaId: String, completionHandler: @escaping () -> Void) {
+        guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
+        APIManager.shared.request(route: InstagramRouter.unlikePost(mediaId, token)).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                print(value)
+                completionHandler()
+                
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+                completionHandler()
             }
         }
     }

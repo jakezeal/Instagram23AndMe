@@ -12,18 +12,24 @@ import Alamofire
 enum InstagramRouter: URLRequestConvertible {
     
     case fetchRecentUserPhotos(String)
+    case likePost(String, String)
+    case unlikePost(String, String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
             case .fetchRecentUserPhotos:
                 return .get
+            case .likePost:
+                return .post
+            case .unlikePost:
+                return .delete
             }
         }
         
         let params: ([String : Any]?) = {
             switch self {
-            case .fetchRecentUserPhotos(let token):
+            case .fetchRecentUserPhotos(let token), .likePost(_, let token), .unlikePost(_, let token):
                 return ["access_token": token]
             }
         }()
@@ -32,7 +38,8 @@ enum InstagramRouter: URLRequestConvertible {
             switch self {
             case .fetchRecentUserPhotos:
                 return "users/self/media/recent/"
-
+            case .likePost(let mediaId, _), .unlikePost(let mediaId, _):
+                return "/media/\(mediaId)/likes"
             }
         }()
         
@@ -45,7 +52,7 @@ enum InstagramRouter: URLRequestConvertible {
         
         let encoding: ParameterEncoding = {
             switch self {
-            case .fetchRecentUserPhotos:
+            case .fetchRecentUserPhotos, .likePost, .unlikePost:
                 return URLEncoding.default
             default:
                 return JSONEncoding.default

@@ -34,8 +34,10 @@ class HomeViewController: UIViewController {
     }
     
     func fetchRecentUserPhotos() {
-        viewModel.fetchRecentUserPhotos { (imagePosts) in
+        viewModel.fetchRecentUserPhotos { [unowned self] (imagePosts) in
             print(imagePosts)
+            self.viewModel.imagePosts = imagePosts
+            self.collectionView.reloadData()
         }
     }
 }
@@ -71,6 +73,12 @@ extension HomeViewController: UICollectionViewDataSource {
             }
         })
         
+        if imagePost.userHasLiked {
+            cell.likeButton.setTitle("Unlike", for: .normal)
+        } else {
+            cell.likeButton.setTitle("Like", for: .normal)
+        }
+        
         cell.delegate = self
         
     }
@@ -78,7 +86,7 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 // MARK: - Collection View Delegate
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegate {
     
 }
 
@@ -86,6 +94,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 extension HomeViewController: PostCollectionViewCellDelegate {
     func didTap(likeButton: UIButton, on cell: PostCollectionViewCell) {
         print(#function)
+        likeButton.isEnabled = false
         // TODO: Logic
+        guard let indexPath = collectionView.indexPathForItem(at: cell.center) else { return }
+        let post = viewModel.imagePosts[indexPath.row]
+        if post.userHasLiked {
+            InstagramService.unlikePost(withMediaId: post.mediaId, completionHandler: { 
+                // TODO: Update UI
+                cell.likeButton.setTitle("Like", for: .normal)
+                likeButton.isEnabled = true
+            })
+        } else {
+            InstagramService.likePost(withMediaId: post.mediaId, completionHandler: {
+                // TODO: Update UI
+                cell.likeButton.setTitle("Unlike", for: .normal)
+                likeButton.isEnabled = true
+            })
+        }
     }
 }

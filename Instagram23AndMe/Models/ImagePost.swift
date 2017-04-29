@@ -17,7 +17,9 @@ enum PostType: String {
 struct ImagePost {
     
     // MARK: - Instance Vars
+    let mediaId: String
     let imageURLString: String
+    let userHasLiked: Bool
     
     
     // MARK: - Initializers
@@ -30,5 +32,10 @@ struct ImagePost {
         guard let standardResolutionImageURLString = images["standard_resolution"]["url"].string else { return nil }
         imageURLString = standardResolutionImageURLString
         
+        guard let userHasLiked = json["user_has_liked"].bool else { return nil }
+        self.userHasLiked = userHasLiked
+        
+        guard let id = json["id"].string else { return nil }
+        self.mediaId = id
     }
 }

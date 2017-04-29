@@ -9,7 +9,7 @@
 import Foundation
 
 class HomeViewModel {
-    let imagePosts: [ImagePost] = []
+    var imagePosts: [ImagePost] = []
     
     func fetchRecentUserPhotos(completionHandler: @escaping ([ImagePost]) -> Void) {
         InstagramService.fetchRecentUserPhotos { (result) in
