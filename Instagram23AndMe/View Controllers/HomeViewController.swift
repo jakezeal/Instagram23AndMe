@@ -94,22 +94,19 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: PostCollectionViewCellDelegate {
     func didTap(likeButton: UIButton, on cell: PostCollectionViewCell) {
         print(#function)
+        // Disable button until network call completes
         likeButton.isEnabled = false
-        // TODO: Logic
+        // Get index path of cell
         guard let indexPath = collectionView.indexPathForItem(at: cell.center) else { return }
-        let post = viewModel.imagePosts[indexPath.row]
-        if post.userHasLiked {
-            InstagramService.unlikePost(withMediaId: post.mediaId, completionHandler: { 
-                // TODO: Update UI
-                cell.likeButton.setTitle("Like", for: .normal)
-                likeButton.isEnabled = true
-            })
-        } else {
-            InstagramService.likePost(withMediaId: post.mediaId, completionHandler: {
-                // TODO: Update UI
-                cell.likeButton.setTitle("Unlike", for: .normal)
-                likeButton.isEnabled = true
-            })
+        // Get ImagePost
+        let imagePost = viewModel.imagePosts[indexPath.row]
+        
+        // Make network request
+        viewModel.userLiked(imagePost: imagePost) { (titleString: String) in
+            cell.likeButton.setTitle(titleString, for: .normal)
+            likeButton.isEnabled = true
         }
+        
+        
     }
 }

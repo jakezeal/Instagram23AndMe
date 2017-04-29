@@ -11,6 +11,7 @@ import Foundation
 class HomeViewModel {
     var imagePosts: [ImagePost] = []
     
+    // MARK: - Helpers
     func fetchRecentUserPhotos(completionHandler: @escaping ([ImagePost]) -> Void) {
         InstagramService.fetchRecentUserPhotos { (result) in
             switch result {
@@ -21,6 +22,19 @@ class HomeViewModel {
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
             }
+        }
+    }
+    
+    func userLiked(imagePost: ImagePost, completionHandler: @escaping (String) -> Void) {
+        if imagePost.userHasLiked {
+            InstagramService.unlikePost(withMediaId: imagePost.mediaId, completionHandler: {
+                completionHandler("Like")
+                
+            })
+        } else {
+            InstagramService.likePost(withMediaId: imagePost.mediaId, completionHandler: {
+                completionHandler("Unlike")
+            })
         }
     }
 }
