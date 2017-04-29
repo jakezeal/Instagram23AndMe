@@ -29,11 +29,13 @@ class HomeViewModel {
     func userLiked(imagePost: ImagePost, completionHandler: @escaping (String) -> Void) {
         if imagePost.userHasLiked {
             InstagramService.unlikePost(withMediaId: imagePost.mediaId, completionHandler: {
+                imagePost.userHasLiked = !imagePost.userHasLiked
                 completionHandler("Like")
                 
             })
         } else {
             InstagramService.likePost(withMediaId: imagePost.mediaId, completionHandler: {
+                imagePost.userHasLiked = !imagePost.userHasLiked
                 completionHandler("Unlike")
             })
         }

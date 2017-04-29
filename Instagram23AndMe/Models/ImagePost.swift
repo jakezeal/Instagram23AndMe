@@ -14,12 +14,12 @@ enum PostType: String {
     case video = "video"
 }
 
-struct ImagePost {
+class ImagePost {
     
     // MARK: - Instance Vars
     let mediaId: String
     let imageURLString: String
-    let userHasLiked: Bool
+    var userHasLiked: Bool
     
     
     // MARK: - Initializers
