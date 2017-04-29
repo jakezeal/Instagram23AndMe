@@ -15,8 +15,8 @@ class SearchViewModel {
         case tags
     }
     
-    let places = ["Toronto, San Francisco, Vancouver"]
-    let tags = ["puppies, dogs, kittens"]
+//    let places = ["Toronto, San Francisco, Vancouver"]
+//    let tags = ["puppies, dogs, kittens"]
     
     var filteredPlaces: [String] = []
     var filteredTags: [String] = []

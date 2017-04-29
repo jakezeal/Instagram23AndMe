@@ -66,7 +66,7 @@ class InstagramService {
     }
     
     // Search
-    class func searchPlace(withLatitude latitude: Float, longitude: Float, completionHandler: @escaping () -> Void) {
+    class func searchPlace(withLatitude latitude: Float = 48.8, longitude: Float = 2.2, completionHandler: @escaping () -> Void) {
         guard let token = KeychainHelper.shared.retrieveAccessToken() else { return }
         APIManager.shared.request(route: InstagramRouter.searchPlace(latitude, longitude, token)).responseJSON { (response) in
             switch response.result {
