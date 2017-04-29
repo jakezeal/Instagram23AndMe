@@ -26,8 +26,4 @@ class LoginViewModel {
         
     }
     
-//    func safariViewController(withURL url: URL) -> SFSafariViewController {
-//        let safariViewController = SFSafariViewController(url: url)
-//        return safariViewController
-//    }
 }

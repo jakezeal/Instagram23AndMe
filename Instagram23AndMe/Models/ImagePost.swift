@@ -14,7 +14,7 @@ enum PostType: String {
     case video = "video"
 }
 
-struct ImagePost {
+class ImagePost {
     
     // MARK: - Instance Vars
     let mediaId: String
