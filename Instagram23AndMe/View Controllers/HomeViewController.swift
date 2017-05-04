@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         fetchRecentUserPhotos()
-
     }
     
     // MARK: - Setups
@@ -32,8 +31,6 @@ class HomeViewController: UIViewController {
     
     func fetchRecentUserPhotos() {
         viewModel.fetchRecentUserPhotos { [unowned self] (imagePosts) in
-            print(imagePosts)
-            self.viewModel.imagePosts = imagePosts
             self.collectionView.reloadData()
         }
     }

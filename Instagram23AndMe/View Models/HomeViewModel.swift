@@ -17,7 +17,7 @@ class HomeViewModel {
         InstagramService.fetchRecentUserPhotos { (result) in
             switch result {
             case .success(let imagePosts):
-                // TODO: completion handler or set it in view model here?
+                self.imagePosts = imagePosts
                 completionHandler(imagePosts)
                 
             case .failure(let error):
