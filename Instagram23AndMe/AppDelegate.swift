@@ -51,5 +51,17 @@ extension AppDelegate {
         window?.rootViewController = startViewController
         window?.makeKeyAndVisible()
     }
+    
+    func changeRootViewController(_ viewController: UIViewController) {
+        
+        UIView.transition(with: window!,
+                          duration: 0.5,
+                          options: .transitionFlipFromLeft,
+                          animations: {
+                            self.window?.rootViewController = viewController
+        }, completion: nil)
+        
+        window?.makeKeyAndVisible()
+    }
 }
 

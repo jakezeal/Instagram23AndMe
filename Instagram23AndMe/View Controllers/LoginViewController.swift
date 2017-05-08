@@ -24,6 +24,13 @@ class LoginViewController: UIViewController {
         webView.loadRequest(URLRequest(url: viewModel.instagramURL))
     }
     
+    func login() {
+        let appDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let newRootViewController = storyboard.instantiateInitialViewController() as! UITabBarController
+        appDelegate.changeRootViewController(newRootViewController)
+    }
+    
 }
 
 // http://clover.studio/2016/08/10/instagram-integration-in-ios-application/
@@ -45,6 +52,8 @@ extension LoginViewController: UIWebViewDelegate {
         // Set Item in Keychain
         KeychainHelper.shared.setAccessToken(accessToken: accessToken)
         
+        // Login
+        login()
         
         return false
         

@@ -20,10 +20,5 @@ class LoginViewModel {
         let responseTypeQuery = URLQueryItem(name: "response_type", value: "token")
         urlComponents.queryItems = [clientIdQuery, redirectUriQuery, responseTypeQuery]
         return urlComponents.url!
-    }()
-    
-    func login() {
-        
-    }
-    
+    }()    
 }
